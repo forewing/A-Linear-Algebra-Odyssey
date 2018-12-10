@@ -93,7 +93,6 @@
                             </div>
                         </div>
                         <div id="rank"    class="col solve" style="display: none">
-                            <!-- TODO -->
                             <div class="row">
                                 <div class="col-2"></div>
                                 <div class="col-8"><textarea class="form-control" id="rank-input" rows="8" placeholder="待解矩阵，以空格和换行控制坐标，如
@@ -118,7 +117,28 @@
                             </div>
                         </div>
                         <div id="det"     class="col solve" style="display: none">
-                            <!-- TODO -->
+                            <div class="row">
+                                <div class="col-2"></div>
+                                <div class="col-8"><textarea class="form-control" id="det-input" rows="8" placeholder="待解矩阵，以空格和换行控制坐标，如
+6 3
+2 4" required></textarea></div>
+                                <div class="col-2"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2"></div>
+                                <div class="col-4">
+                                    <button id='det-solve' class="btn btn-primary btn-block">求行列式</button>
+                                </div>
+                                <div class="col-4">
+                                    <button id='det-random' class="btn btn-primary btn-block" onclick="randomMat('#det-input')">随机</button>
+                                </div>
+                                <div class="col-2"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4"></div>
+                                <div class="col-4"><textarea class="form-control" id="det-output" rows="1" placeholder="答案矩阵" readonly></textarea></div>
+                                <div class="col-4"></div>
+                            </div>
                         </div>
                         <div id="gauss-1" class="col solve" style="display: none">
                             <!-- TODO -->

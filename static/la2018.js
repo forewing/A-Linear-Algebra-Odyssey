@@ -66,3 +66,19 @@ $('#rank-solve').click(
         $('#rank-output').val(A_rank);
     }
 )
+
+
+$('#det-solve').click(
+    function trySolveRank(){
+        var A = textToMat($('#det-input').val());
+        var A_det = A.determinant();
+        var ret = '求解失败';
+        if (A_det == null){
+            prompt_warning("该矩阵无法求行列式");
+        }else{
+            prompt_success("求行列式成功");
+            ret = A_det;
+        }
+        $('#det-output').val(ret);
+    }
+)
