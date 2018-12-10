@@ -42,6 +42,7 @@ $('.selector').click(
     function trySelectFunction(){
         $('.solve').hide();
         $('.solve#' + $(this)[0].id).show();
+        $('#solve-header').html("计算界面 - " + $(this).html());
         prompt_info("进入" + $(this).html() + "模式");
     }
 )

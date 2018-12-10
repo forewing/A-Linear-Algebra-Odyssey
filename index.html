@@ -17,7 +17,35 @@
             <div class="row">
                 <div class="col function-panel">
                     <div class="alert alert-info" role="alert">
-                        <h4 class="alert-heading">线性代数：奥德赛</h4>
+                        <div class="row">
+                            <div class="col-8">
+                                <h4 class="alert-heading">线性代数：奥德赛</h4>
+                            </div>
+                            <div class="col-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-info dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        功能选择
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item selector" id="inverse" href="#">求逆</a>
+                                        <a class="dropdown-item selector" id="trans"   href="#">转置</a>
+                                        <a class="dropdown-item selector" id="rank"    href="#">求秩</a>
+                                        <a class="dropdown-item selector" id="trace"   href="#">求迹</a>
+                                        <a class="dropdown-item selector" id="det"     href="#">行列式</a>
+                                        <a class="dropdown-item selector" id="dim"     href="#">维度</a>
+                                        <a class="dropdown-item selector" id="minor"   href="#">子阵</a>
+                                        <a class="dropdown-item selector" id="aug"     href="#">附加</a>
+                                        <a class="dropdown-item selector" id="gauss-1" href="#">行梯阵</a>
+                                        <a class="dropdown-item selector" id="gauss-2" href="#">约化梯阵</a>
+                                        <a class="dropdown-item selector" id="add"     href="#">相加</a>
+                                        <a class="dropdown-item selector" id="sub"     href="#">相减</a>
+                                        <a class="dropdown-item selector" id="mul"     href="#">相乘</a>
+                                        <a class="dropdown-item selector" id="eigen"   href="#">特征向量</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+<!--
                         <div class="col">
                         <hr>
                         <div id='function-selector'>
@@ -28,68 +56,68 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <button id='inverse' class="btn btn-primary btn-block selector">求逆</button>
+                                    <button id='inverse' class="btn btn-info btn-block selector">求逆</button>
                                 </div>
                                 <div class="col">
-                                    <button id='trans' class="btn btn-primary btn-block selector">转置</button>
+                                    <button id='trans' class="btn btn-info btn-block selector">转置</button>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <button id='rank' class="btn btn-primary btn-block selector">求秩</button>
+                                    <button id='rank' class="btn btn-info btn-block selector">求秩</button>
                                 </div>
                                 <div class="col">
-                                    <button id='trace' class="btn btn-primary btn-block selector">求迹</button>
+                                    <button id='trace' class="btn btn-info btn-block selector">求迹</button>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <button id='det' class="btn btn-primary btn-block selector">行列式</button>
+                                    <button id='det' class="btn btn-info btn-block selector">行列式</button>
                                 </div>
                                 <div class="col">
-                                    <button id='dim' class="btn btn-primary btn-block selector">维度</button>
+                                    <button id='dim' class="btn btn-info btn-block selector">维度</button>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <button id='minor' class="btn btn-primary btn-block selector">子阵</button>
+                                    <button id='minor' class="btn btn-info btn-block selector">子阵</button>
                                 </div>
                                 <div class="col">
-                                    <button id='aug' class="btn btn-primary btn-block selector">附加</button>
+                                    <button id='aug' class="btn btn-info btn-block selector">附加</button>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <button id='gauss-1' class="btn btn-primary btn-block selector">行梯阵</button>
+                                    <button id='gauss-1' class="btn btn-info btn-block selector">行梯阵</button>
                                 </div>
                                 <div class="col">
-                                    <button id='gauss-2' class="btn btn-primary btn-block selector">约化梯阵</button>
+                                    <button id='gauss-2' class="btn btn-info btn-block selector">约化梯阵</button>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <button id='add' class="btn btn-primary btn-block selector">加法</button>
+                                    <button id='add' class="btn btn-info btn-block selector">加法</button>
                                 </div>
                                 <div class="col">
-                                    <button id='sub' class="btn btn-primary btn-block selector">减法</button>
+                                    <button id='sub' class="btn btn-info btn-block selector">减法</button>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <button id='mul' class="btn btn-primary btn-block selector">乘法</button>
+                                    <button id='mul' class="btn btn-info btn-block selector">乘法</button>
                                 </div>
                                 <div class="col">
-                                    <button id='eigen' class="btn btn-primary btn-block selector">特征向量</button>
+                                    <button id='eigen' class="btn btn-info btn-block selector">特征向量</button>
                                 </div>
                             </div>
-                        </div>
-                        </div>
+                        </div> -->
+                        <!-- </div> -->
                     </div>
                 </div>
             </div>
             <div class="main-panel">
                 <div class="alert alert-info" role="alert">
-                    <h4>计算界面</h4>
+                    <h4 id="solve-header">计算界面 - 求逆</h4>
                     <hr>
                     <div class="row">
                         <div id="inverse" class="col solve">
@@ -103,10 +131,10 @@
                             <div class="row">
                                 <div class="col-2"></div>
                                 <div class="col-4">
-                                    <button id='inverse-solve' class="btn btn-primary btn-block">求逆</button>
+                                    <button id='inverse-solve' class="btn btn-info btn-block">求逆</button>
                                 </div>
                                 <div class="col-4">
-                                    <button id='inverse-random' class="btn btn-primary btn-block" onclick="randomMat('#inverse-input', 4, 4)">随机</button>
+                                    <button id='inverse-random' class="btn btn-info btn-block" onclick="randomMat('#inverse-input', 4, 4)">随机</button>
                                 </div>
                                 <div class="col-2"></div>
                             </div>
@@ -127,10 +155,10 @@
                             <div class="row">
                                 <div class="col-2"></div>
                                 <div class="col-4">
-                                    <button id='trans-solve' class="btn btn-primary btn-block">转置</button>
+                                    <button id='trans-solve' class="btn btn-info btn-block">转置</button>
                                 </div>
                                 <div class="col-4">
-                                    <button id='trans-random' class="btn btn-primary btn-block" onclick="randomMat('#trans-input', 7, 7)">随机</button>
+                                    <button id='trans-random' class="btn btn-info btn-block" onclick="randomMat('#trans-input', 7, 7)">随机</button>
                                 </div>
                                 <div class="col-2"></div>
                             </div>
@@ -151,10 +179,10 @@
                             <div class="row">
                                 <div class="col-2"></div>
                                 <div class="col-4">
-                                    <button id='rank-solve' class="btn btn-primary btn-block">求秩</button>
+                                    <button id='rank-solve' class="btn btn-info btn-block">求秩</button>
                                 </div>
                                 <div class="col-4">
-                                    <button id='rank-random' class="btn btn-primary btn-block" onclick="randomMat('#rank-input', 7, 7)">随机</button>
+                                    <button id='rank-random' class="btn btn-info btn-block" onclick="randomMat('#rank-input', 7, 7)">随机</button>
                                 </div>
                                 <div class="col-2"></div>
                             </div>
@@ -175,10 +203,10 @@
                             <div class="row">
                                 <div class="col-2"></div>
                                 <div class="col-4">
-                                    <button id='trace-solve' class="btn btn-primary btn-block">求迹</button>
+                                    <button id='trace-solve' class="btn btn-info btn-block">求迹</button>
                                 </div>
                                 <div class="col-4">
-                                    <button id='trace-random' class="btn btn-primary btn-block" onclick="randomMat('#trace-input', 7, 7)">随机</button>
+                                    <button id='trace-random' class="btn btn-info btn-block" onclick="randomMat('#trace-input', 7, 7)">随机</button>
                                 </div>
                                 <div class="col-2"></div>
                             </div>
@@ -199,10 +227,10 @@
                             <div class="row">
                                 <div class="col-2"></div>
                                 <div class="col-4">
-                                    <button id='det-solve' class="btn btn-primary btn-block">求行列式</button>
+                                    <button id='det-solve' class="btn btn-info btn-block">求行列式</button>
                                 </div>
                                 <div class="col-4">
-                                    <button id='det-random' class="btn btn-primary btn-block" onclick="randomMat('#det-input', 7, 7)">随机</button>
+                                    <button id='det-random' class="btn btn-info btn-block" onclick="randomMat('#det-input', 7, 7)">随机</button>
                                 </div>
                                 <div class="col-2"></div>
                             </div>
@@ -223,10 +251,10 @@
                             <div class="row">
                                 <div class="col-2"></div>
                                 <div class="col-4">
-                                    <button id='dim-solve' class="btn btn-primary btn-block">求维度</button>
+                                    <button id='dim-solve' class="btn btn-info btn-block">求维度</button>
                                 </div>
                                 <div class="col-4">
-                                    <button id='dim-random' class="btn btn-primary btn-block" onclick="randomMat('#dim-input', 7, 6)">随机</button>
+                                    <button id='dim-random' class="btn btn-info btn-block" onclick="randomMat('#dim-input', 7, 6)">随机</button>
                                 </div>
                                 <div class="col-2"></div>
                             </div>
@@ -247,10 +275,10 @@
                             <div class="row">
                                 <div class="col-2"></div>
                                 <div class="col-4">
-                                    <button id='gauss-1-solve' class="btn btn-primary btn-block">求行梯阵</button>
+                                    <button id='gauss-1-solve' class="btn btn-info btn-block">求行梯阵</button>
                                 </div>
                                 <div class="col-4">
-                                    <button id='gauss-1-random' class="btn btn-primary btn-block" onclick="randomMat('#gauss-1-input', 4, 5)">随机</button>
+                                    <button id='gauss-1-random' class="btn btn-info btn-block" onclick="randomMat('#gauss-1-input', 4, 5)">随机</button>
                                 </div>
                                 <div class="col-2"></div>
                             </div>
@@ -271,10 +299,10 @@
                             <div class="row">
                                 <div class="col-2"></div>
                                 <div class="col-4">
-                                    <button id='gauss-2-solve' class="btn btn-primary btn-block">求约化梯阵</button>
+                                    <button id='gauss-2-solve' class="btn btn-info btn-block">求约化梯阵</button>
                                 </div>
                                 <div class="col-4">
-                                    <button id='gauss-2-random' class="btn btn-primary btn-block" onclick="randomMat('#gauss-2-input', 4, 5)">随机</button>
+                                    <button id='gauss-2-random' class="btn btn-info btn-block" onclick="randomMat('#gauss-2-input', 4, 5)">随机</button>
                                 </div>
                                 <div class="col-2"></div>
                             </div>
@@ -294,10 +322,10 @@
                             <div class="row">
                                 <div class="col-2"></div>
                                 <div class="col-4">
-                                    <button id='minor-solve' class="btn btn-primary btn-block">取子阵</button>
+                                    <button id='minor-solve' class="btn btn-info btn-block">取子阵</button>
                                 </div>
                                 <div class="col-4">
-                                    <button id='minor-random' class="btn btn-primary btn-block" onclick="randomMat('#minor-input', 7, 7);randomMat('#minor-input-2', 1, 4);">随机</button>
+                                    <button id='minor-random' class="btn btn-info btn-block" onclick="randomMat('#minor-input', 7, 7);randomMat('#minor-input-2', 1, 4);">随机</button>
                                 </div>
                                 <div class="col-2"></div>
                             </div>
@@ -319,13 +347,13 @@
                             <div class="row">
                                 <div class="col-2"></div>
                                 <div class="col-4">
-                                    <button id='aug-solve' class="btn btn-primary btn-block">附加</button>
+                                    <button id='aug-solve' class="btn btn-info btn-block">附加</button>
                                 </div>
                                 <div class="col-2">
-                                    <button id='aug-solve-I' class="btn btn-primary btn-block">I</button>
+                                    <button id='aug-solve-I' class="btn btn-info btn-block">I</button>
                                 </div>
                                 <div class="col-2">
-                                    <button id='aug-random' class="btn btn-primary btn-block" onclick="randomMat('#aug-input', 7, 7);randomMat('#aug-input-2', 7, 7);">随机</button>
+                                    <button id='aug-random' class="btn btn-info btn-block" onclick="randomMat('#aug-input', 7, 7);randomMat('#aug-input-2', 7, 7);">随机</button>
                                 </div>
                                 <div class="col-2"></div>
                             </div>
@@ -347,10 +375,10 @@
                             <div class="row">
                                 <div class="col-2"></div>
                                 <div class="col-4">
-                                    <button id='add-solve' class="btn btn-primary btn-block">相加</button>
+                                    <button id='add-solve' class="btn btn-info btn-block">相加</button>
                                 </div>
                                 <div class="col-4">
-                                    <button id='add-random' class="btn btn-primary btn-block" onclick="randomMat('#add-input', 7, 7);randomMat('#add-input-2', 7, 7);">随机</button>
+                                    <button id='add-random' class="btn btn-info btn-block" onclick="randomMat('#add-input', 7, 7);randomMat('#add-input-2', 7, 7);">随机</button>
                                 </div>
                                 <div class="col-2"></div>
                             </div>
@@ -372,10 +400,10 @@
                             <div class="row">
                                 <div class="col-2"></div>
                                 <div class="col-4">
-                                    <button id='sub-solve' class="btn btn-primary btn-block">相减 </button>
+                                    <button id='sub-solve' class="btn btn-info btn-block">相减 </button>
                                 </div>
                                 <div class="col-4">
-                                    <button id='sub-random' class="btn btn-primary btn-block" onclick="randomMat('#sub-input', 7, 7);randomMat('#sub-input-2', 7, 7);">随机</button>
+                                    <button id='sub-random' class="btn btn-info btn-block" onclick="randomMat('#sub-input', 7, 7);randomMat('#sub-input-2', 7, 7);">随机</button>
                                 </div>
                                 <div class="col-2"></div>
                             </div>
@@ -397,10 +425,10 @@
                             <div class="row">
                                 <div class="col-2"></div>
                                 <div class="col-4">
-                                    <button id='mul-solve' class="btn btn-primary btn-block">相乘</button>
+                                    <button id='mul-solve' class="btn btn-info btn-block">相乘</button>
                                 </div>
                                 <div class="col-4">
-                                    <button id='mul-random' class="btn btn-primary btn-block" onclick="randomMat('#mul-input', 7, 7);randomMat('#mul-input-2', 7, 7);">随机</button>
+                                    <button id='mul-random' class="btn btn-info btn-block" onclick="randomMat('#mul-input', 7, 7);randomMat('#mul-input-2', 7, 7);">随机</button>
                                 </div>
                                 <div class="col-2"></div>
                             </div>
@@ -421,10 +449,10 @@
                             <div class="row">
                                 <div class="col-2"></div>
                                 <div class="col-4">
-                                    <button id='eigen-solve' class="btn btn-primary btn-block">求特征向量</button>
+                                    <button id='eigen-solve' class="btn btn-info btn-block">求特征向量</button>
                                 </div>
                                 <div class="col-4">
-                                    <button id='eigen-random' class="btn btn-primary btn-block" onclick="randomMat('#eigen-input', 5, 5)">随机</button>
+                                    <button id='eigen-random' class="btn btn-info btn-block" onclick="randomMat('#eigen-input', 5, 5)">随机</button>
                                 </div>
                                 <div class="col-2"></div>
                             </div>
