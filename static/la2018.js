@@ -85,7 +85,7 @@ $('#det-solve').click(
 function utmToRef(M){
     var T_arr = new Array();
     for (i = 1; i <= M.rows(); i++){
-        var vec = M.row(i);
+        vec = M.row(i);
         var vec_arr = new Array();
         var flag = 1;
         for (j = 1; j <= vec.dimensions(); j++){
@@ -102,6 +102,47 @@ function utmToRef(M){
     return $M(T_arr);
 }
 
+function refToRef0(M){
+    var T_arr = new Array();
+    var index = new Array();
+    for (i = 1; i <= M.rows(); i++){
+        vec = M.row(i);
+        for (j = 1; j <= vec.dimensions(); j++){
+            if (vec.e(j) == 1){
+                index[j] = i;
+                break;
+            }
+        }
+    }
+    for (i = 1; i <= M.rows(); i++){
+        vec = M.row(i);
+        var vec_t = vec;
+        var flag = 0;
+        // if (i != M.rows())
+        for (j = 1; j < vec.dimensions(); j++){
+            if (flag == 0 && vec.e(j) == 1){
+                flag = 1;
+            }else if (flag != 0){
+                // console.log(M);
+                // console.log(j + ' ' + index[j]);
+                console.log(M.row(index[j]));
+                console.log(vec.e(j));
+                // console.log(M.row(index[j]).x(vec.e(j)));
+                // console.log(vec_t);
+                vec_t = vec_t.subtract(M.row(index[j]).x(vec.e(j)));
+                // console.log(vec_t);
+                // vec_arr[j-1] -= M.row(index[j]).e(j) *
+            }
+        }
+        var vec_arr = new Array();
+        for (j = 1; j <= vec.dimensions(); j++){
+            vec_arr[j-1] = vec_t.e(j);
+        }
+        T_arr[i-1] = vec_arr;
+    }
+    return $M(T_arr);
+}
+
 $('#gauss-1-solve').click(
     function trySolveGauss1(){
         var A = textToMat($('#gauss-1-input').val());
@@ -110,5 +151,17 @@ $('#gauss-1-solve').click(
         prompt_success("求行梯阵成功");
         ret = matToText(A_ref);
         $('#gauss-1-output').val(ret);
+    }
+)
+
+$('#gauss-2-solve').click(
+    function trySolveGauss1(){
+        var A = textToMat($('#gauss-2-input').val());
+        var A_ut = A.toUpperTriangular();
+        var A_ref = utmToRef(A_ut);
+        var A_ref0 = refToRef0(A_ref);
+        prompt_success("求约化梯阵成功");
+        ret = matToText(A_ref0);
+        $('#gauss-2-output').val(ret);
     }
 )
