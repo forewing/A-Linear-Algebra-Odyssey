@@ -2,7 +2,7 @@ function textToMat(text){
     var lines = $.trim(text).split(/\n/);
     var matMap = new Array();
     for (i in lines){
-        matMap[i] = $.trim(lines[i]).split(" ");
+        matMap[i] = $.trim(lines[i]).split(/\t|\s+/);
     }
     var M = $M(matMap);
     if (M == null){
@@ -89,7 +89,7 @@ function utmToRef(M){
         var vec_arr = new Array();
         var flag = 1;
         for (j = 1; j <= vec.dimensions(); j++){
-            if (vec.e(j) != 0){
+            if (Math.abs(vec.e(j)) > 1e-7){
                 flag = vec.e(j);
                 break;
             }
@@ -114,24 +114,17 @@ function refToRef0(M){
             }
         }
     }
-    for (i = 1; i <= M.rows(); i++){
+    var rank = M.rank();
+    for (i = 1; i <= M.rows() && i <= rank; i++){
         vec = M.row(i);
         var vec_t = vec;
         var flag = 0;
         // if (i != M.rows())
-        for (j = 1; j < vec.dimensions(); j++){
+        for (j = 1; j <= vec.dimensions() && j <= rank; j++){
             if (flag == 0 && vec.e(j) == 1){
                 flag = 1;
             }else if (flag != 0){
-                // console.log(M);
-                // console.log(j + ' ' + index[j]);
-                console.log(M.row(index[j]));
-                console.log(vec.e(j));
-                // console.log(M.row(index[j]).x(vec.e(j)));
-                // console.log(vec_t);
-                vec_t = vec_t.subtract(M.row(index[j]).x(vec.e(j)));
-                // console.log(vec_t);
-                // vec_arr[j-1] -= M.row(index[j]).e(j) *
+                vec_t = vec_t.subtract(M.row(index[j]).x(vec_t.e(j)));
             }
         }
         var vec_arr = new Array();
@@ -155,7 +148,7 @@ $('#gauss-1-solve').click(
 )
 
 $('#gauss-2-solve').click(
-    function trySolveGauss1(){
+    function trySolveGauss2(){
         var A = textToMat($('#gauss-2-input').val());
         var A_ut = A.toUpperTriangular();
         var A_ref = utmToRef(A_ut);
@@ -163,5 +156,28 @@ $('#gauss-2-solve').click(
         prompt_success("求约化梯阵成功");
         ret = matToText(A_ref0);
         $('#gauss-2-output').val(ret);
+    }
+)
+
+$('#add-solve').click(
+    function trySolveAdd(){
+        var A = textToMat($('#add-input').val());
+        var B = textToMat($('#add-input-2').val());
+        var ret = A.augment(B);
+        if (ret == null){
+            prompt_warning("两矩阵无法附加");
+            $('#add-output').val("求解失败");
+        }else{
+            prompt_success("附加成功");
+            $('#add-output').val(matToText(ret));
+        }
+    }
+)
+
+$('#add-solve-I').click(
+    function trySolveAddI(){
+        A = textToMat($('#add-input').val());
+        ret = Matrix.I(A.rows());
+        $('#add-input-2').val(matToText(ret));
     }
 )

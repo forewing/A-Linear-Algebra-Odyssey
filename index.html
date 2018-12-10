@@ -47,7 +47,7 @@
                                     <button id='gauss-2' class="btn btn-primary btn-block selector">约化梯阵</button>
                                 </div>
                                 <div class="col">
-                                    <button id='solve' class="btn btn-primary btn-block selector">解方程组</button>
+                                    <button id='add' class="btn btn-primary btn-block selector">附加</button>
                                 </div>
                             </div>
                             <div class="row">
@@ -68,7 +68,7 @@
                     <h4>计算界面</h4>
                     <hr>
                     <div class="row">
-                        <div id="inverse" class="col solve"                      >
+                        <div id="inverse" class="col solve">
                             <div class="row">
                                 <div class="col-2"></div>
                                 <div class="col-8"><textarea class="form-control" id="inverse-input" rows="8" placeholder="待解矩阵，以空格和换行控制坐标，如
@@ -165,7 +165,6 @@
                             </div>
                         </div>
                         <div id="gauss-2" class="col solve" style="display: none">
-                            <!-- TODO -->
                             <div class="row">
                                 <div class="col-2"></div>
                                 <div class="col-8"><textarea class="form-control" id="gauss-2-input" rows="8" placeholder="待解矩阵，以空格和换行控制坐标，如
@@ -189,8 +188,33 @@
                                 <div class="col-2"></div>
                             </div>
                         </div>
-                        <div id="solve"   class="col solve" style="display: none">
-                            <!-- TODO -->
+                        <div id="add"   class="col solve" style="display: none">
+                            <div class="row">
+                                <div class="col-6"><textarea class="form-control" id="add-input" rows="8" placeholder="待解矩阵，以空格和换行控制坐标，如
+6 3
+2 4" required></textarea></div>
+                                <div class="col-6"><textarea class="form-control" id="add-input-2" rows="8" placeholder="待解矩阵，以空格和换行控制坐标，如
+6 3
+2 4" required></textarea></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2"></div>
+                                <div class="col-4">
+                                    <button id='add-solve' class="btn btn-primary btn-block">附加</button>
+                                </div>
+                                <div class="col-2">
+                                    <button id='add-solve-I' class="btn btn-primary btn-block">I</button>
+                                </div>
+                                <div class="col-2">
+                                    <button id='add-random' class="btn btn-primary btn-block" onclick="randomMat('#add-input', 7, 7);randomMat('#add-input-2', 7, 7);">随机</button>
+                                </div>
+                                <div class="col-2"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2"></div>
+                                <div class="col-8"><textarea class="form-control" id="add-output" rows="8" placeholder="答案矩阵" readonly></textarea></div>
+                                <div class="col-2"></div>
+                            </div>
                         </div>
                         <div id="mul"     class="col solve" style="display: none">
                             <!-- TODO -->
