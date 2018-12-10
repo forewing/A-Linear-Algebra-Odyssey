@@ -3,6 +3,9 @@ function textToMat(text){
     var matMap = new Array();
     for (i in lines){
         matMap[i] = $.trim(lines[i]).split(/\t|\s+/);
+        for (j in matMap[i]){
+            matMap[i][j] = parseFloat(matMap[i][j]);
+        }
     }
     var M = $M(matMap);
     if (M == null){
@@ -58,6 +61,15 @@ $('#inverse-solve').click(
     }
 )
 
+$('#trans-solve').click(
+    function trySolvetTrans(){
+        var A = textToMat($('#trans-input').val());
+        var A_trans = A.transpose();
+        prompt_success("转置成功");
+        $('#trans-output').val(matToText(A_trans));
+    }
+)
+
 $('#rank-solve').click(
     function trySolveRank(){
         var A = textToMat($('#rank-input').val());
@@ -67,8 +79,17 @@ $('#rank-solve').click(
     }
 )
 
+$('#trace-solve').click(
+    function trySolveTrace(){
+        var A = textToMat($('#trace-input').val());
+        var A_trace = A.trace();
+        prompt_success("求迹成功");
+        $('#trace-output').val(A_trace);
+    }
+)
+
 $('#det-solve').click(
-    function trySolveRank(){
+    function trySolveDet(){
         var A = textToMat($('#det-input').val());
         var A_det = A.determinant();
         var ret = '求解失败';
@@ -79,6 +100,15 @@ $('#det-solve').click(
             ret = A_det;
         }
         $('#det-output').val(ret);
+    }
+)
+
+$('#dim-solve').click(
+    function trySolveDim(){
+        var A = textToMat($('#dim-input').val());
+        var A_dim = A.dimensions();
+        prompt_success("求维度成功");
+        $('#dim-output').val(A_dim.rows + '*' + A_dim.cols);
     }
 )
 
@@ -159,31 +189,76 @@ $('#gauss-2-solve').click(
     }
 )
 
+$('#minor-solve').click(
+    function trySolveMinor(){
+        var A = textToMat($('#minor-input').val());
+        var B = textToMat($('#minor-input-2').val());
+        var ret = A.minor(B.row(1).e(1), B.row(1).e(2), B.row(1).e(3), B.row(1).e(4));
+        if (ret == null){
+            prompt_warning("无法取子阵");
+            $('#minor-output').val("求解失败");
+        }else{
+            prompt_success("取子阵成功");
+            $('#minor-output').val(matToText(ret));
+        }
+    }
+)
+
+$('#aug-solve').click(
+    function trySolveAug(){
+        var A = textToMat($('#aug-input').val());
+        var B = textToMat($('#aug-input-2').val());
+        var ret = A.augment(B);
+        if (ret == null){
+            prompt_warning("两矩阵无法附加");
+            $('#aug-output').val("求解失败");
+        }else{
+            prompt_success("附加成功");
+            $('#aug-output').val(matToText(ret));
+        }
+    }
+)
+
+$('#aug-solve-I').click(
+    function trySolveAugI(){
+        A = textToMat($('#aug-input').val());
+        ret = Matrix.I(A.rows());
+        $('#aug-input-2').val(matToText(ret));
+    }
+)
+
 $('#add-solve').click(
     function trySolveAdd(){
         var A = textToMat($('#add-input').val());
         var B = textToMat($('#add-input-2').val());
-        var ret = A.augment(B);
+        var ret = A.add(B);
         if (ret == null){
-            prompt_warning("两矩阵无法附加");
+            prompt_warning("两矩阵无法相加");
             $('#add-output').val("求解失败");
         }else{
-            prompt_success("附加成功");
+            prompt_success("相加成功");
             $('#add-output').val(matToText(ret));
         }
     }
 )
 
-$('#add-solve-I').click(
-    function trySolveAddI(){
-        A = textToMat($('#add-input').val());
-        ret = Matrix.I(A.rows());
-        $('#add-input-2').val(matToText(ret));
+$('#sub-solve').click(
+    function trySolveSub(){
+        var A = textToMat($('#sub-input').val());
+        var B = textToMat($('#sub-input-2').val());
+        var ret = A.subtract(B);
+        if (ret == null){
+            prompt_warning("两矩阵无法相减");
+            $('#sub-output').val("求解失败");
+        }else{
+            prompt_success("相减成功");
+            $('#sub-output').val(matToText(ret));
+        }
     }
 )
 
 $('#mul-solve').click(
-    function trySolvemul(){
+    function trySolveMul(){
         var A = textToMat($('#mul-input').val());
         var B = textToMat($('#mul-input-2').val());
         var ret = A.x(B);
@@ -194,5 +269,27 @@ $('#mul-solve').click(
             prompt_success("相乘成功");
             $('#mul-output').val(matToText(ret));
         }
+    }
+)
+
+$('#mul-solve').click(
+    function trySolveMul(){
+        var A = textToMat($('#mul-input').val());
+        var B = textToMat($('#mul-input-2').val());
+        var ret = A.x(B);
+        if (ret == null){
+            prompt_warning("两矩阵无法相乘");
+            $('#mul-output').val("求解失败");
+        }else{
+            prompt_success("相乘成功");
+            $('#mul-output').val(matToText(ret));
+        }
+    }
+)
+
+$('#eigen-solve').click(
+    function trySolveEigen(){
+        var A = textToMat($('#eigen-input').val());
+        prompt_fail("输入数据非法");
     }
 )
