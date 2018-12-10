@@ -1,3 +1,3 @@
-# la2018
+# LA2018: A Linear Algebra Odyssey
 
-Project assignment for Linear Algebra 2018.
+纯前端，可通过 [链接](https://a-linear-algebra-odyssey.github.io/A-Linear-Algebra-Odyssey/) 直接访问。
