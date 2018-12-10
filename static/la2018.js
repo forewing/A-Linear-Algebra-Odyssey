@@ -1,5 +1,5 @@
 function textToMat(text){
-    var lines = $.trim(text).split(/\n/);
+    var lines = $.trim(text).split(/\n+/);
     var matMap = new Array();
     for (i in lines){
         matMap[i] = $.trim(lines[i]).split(/\t|\s+/);
@@ -179,5 +179,20 @@ $('#add-solve-I').click(
         A = textToMat($('#add-input').val());
         ret = Matrix.I(A.rows());
         $('#add-input-2').val(matToText(ret));
+    }
+)
+
+$('#mul-solve').click(
+    function trySolvemul(){
+        var A = textToMat($('#mul-input').val());
+        var B = textToMat($('#mul-input-2').val());
+        var ret = A.x(B);
+        if (ret == null){
+            prompt_warning("两矩阵无法相乘");
+            $('#mul-output').val("求解失败");
+        }else{
+            prompt_success("相乘成功");
+            $('#mul-output').val(matToText(ret));
+        }
     }
 )
