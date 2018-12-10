@@ -44,7 +44,7 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <button id='gauss-2' class="btn btn-primary btn-block selector">约化行梯阵</button>
+                                    <button id='gauss-2' class="btn btn-primary btn-block selector">约化梯阵</button>
                                 </div>
                                 <div class="col">
                                     <button id='solve' class="btn btn-primary btn-block selector">解方程组</button>
@@ -67,29 +67,51 @@
                 <div class="alert alert-info" role="alert">
                     <h4>计算界面</h4>
                     <hr>
-                    <div class="col">
-                        <div id="inverse" class="row solve"                      >
+                    <div class="row">
+                        <div id="inverse" class="col solve"                      >
+                            <!-- TODO -->
+                            <div class="row">
+                                <div class="col-2"></div>
+                                <div class="col-8"><textarea class="form-control" id="inverse-input" rows="8" placeholder="待解矩阵，以空格和换行控制坐标，如
+6 3
+2 4" required></textarea></div>
+                                <div class="col-2"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2"></div>
+                                <div class="col-4">
+                                    <button id='inverse-solve' class="btn btn-primary btn-block">求逆</button>
+                                </div>
+                                <div class="col-4">
+                                    <button id='inverse-random' class="btn btn-primary btn-block">随机</button>
+                                </div>
+                                <div class="col-2"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2"></div>
+                                <div class="col-8"><textarea class="form-control" id="inverse-output" rows="10" placeholder="答案矩阵" readonly></textarea></div>
+                                <div class="col-2"></div>
+                            </div>
+                        </div>
+                        <div id="rank"    class="col solve" style="display: none">
                             <!-- TODO -->
                         </div>
-                        <div id="rank"    class="row solve" style="display: none">
+                        <div id="det"     class="col solve" style="display: none">
                             <!-- TODO -->
                         </div>
-                        <div id="det"     class="row solve" style="display: none">
+                        <div id="gauss-1" class="col solve" style="display: none">
                             <!-- TODO -->
                         </div>
-                        <div id="gauss-1" class="row solve" style="display: none">
+                        <div id="gauss-2" class="col solve" style="display: none">
                             <!-- TODO -->
                         </div>
-                        <div id="gauss-2" class="row solve" style="display: none">
+                        <div id="solve"   class="col solve" style="display: none">
                             <!-- TODO -->
                         </div>
-                        <div id="solve"   class="row solve" style="display: none">
+                        <div id="mul"     class="col solve" style="display: none">
                             <!-- TODO -->
                         </div>
-                        <div id="mul"     class="row solve" style="display: none">
-                            <!-- TODO -->
-                        </div>
-                        <div id="eigen"   class="row solve" style="display: none">
+                        <div id="eigen"   class="col solve" style="display: none">
                             <!-- TODO -->
                         </div>
                     </div>
