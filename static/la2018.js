@@ -1,6 +1,5 @@
 function textToMat(text){
     var lines = $.trim(text).split(/\n/);
-    console.log(lines);
     var matMap = new Array();
     for (i in lines){
         matMap[i] = $.trim(lines[i]).split(" ");
@@ -24,24 +23,23 @@ function matToText(mat){
     return text;
 }
 
+function randomMat(id){
+    var mat = new String('');
+    for (i = 0; i < 5; i++){
+        for (j = 0; j < 5; j++){
+            mat += Math.floor(Math.random() * 10);
+            mat += ' ';
+        }
+        mat += '\n';
+    }
+    $(id).val(mat);
+}
+
 $('.selector').click(
     function trySelectFunction(){
         $('.solve').hide();
         $('.solve#' + $(this)[0].id).show();
-    }
-)
-
-$('#inverse-random').click(
-    function tryRandomInverse(){
-        var mat = new String('');
-        for (i = 0; i < 5; i++){
-            for (j = 0; j < 5; j++){
-                mat += Math.floor(Math.random() * 10);
-                mat += ' ';
-            }
-            mat += '\n';
-        }
-        $('#inverse-input').val(mat);
+        prompt_info("进入" + $(this).html() + "模式");
     }
 )
 
@@ -51,10 +49,20 @@ $('#inverse-solve').click(
         var A_inv = A.inverse();
         var ret = "求解失败";
         if (A_inv == null){
-            prompt_warning('该矩阵无法求逆');
+            prompt_warning("该矩阵无法求逆");
         }else{
+            prompt_success("求逆成功");
             ret = matToText(A_inv);
         }
         $('#inverse-output').val(ret);
+    }
+)
+
+$('#rank-solve').click(
+    function trySolveRank(){
+        var A = textToMat($('#rank-input').val());
+        var A_rank = A.rank();
+        prompt_success("求秩成功");
+        $('#rank-output').val(A_rank);
     }
 )
