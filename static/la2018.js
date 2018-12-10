@@ -23,10 +23,10 @@ function matToText(mat){
     return text;
 }
 
-function randomMat(id){
+function randomMat(id, n, m){
     var mat = new String('');
-    for (i = 0; i < 5; i++){
-        for (j = 0; j < 5; j++){
+    for (i = 0; i < n; i++){
+        for (j = 0; j < m; j++){
             mat += Math.floor(Math.random() * 10);
             mat += ' ';
         }
@@ -67,7 +67,6 @@ $('#rank-solve').click(
     }
 )
 
-
 $('#det-solve').click(
     function trySolveRank(){
         var A = textToMat($('#det-input').val());
@@ -80,5 +79,36 @@ $('#det-solve').click(
             ret = A_det;
         }
         $('#det-output').val(ret);
+    }
+)
+
+function utmToRef(M){
+    var T_arr = new Array();
+    for (i = 1; i <= M.rows(); i++){
+        var vec = M.row(i);
+        var vec_arr = new Array();
+        var flag = 1;
+        for (j = 1; j <= vec.dimensions(); j++){
+            if (vec.e(j) != 0){
+                flag = vec.e(j);
+                break;
+            }
+        }
+        for (j = 1; j <= vec.dimensions(); j++){
+            vec_arr[j-1] = vec.e(j) / flag;
+        }
+        T_arr[i-1] = vec_arr;
+    }
+    return $M(T_arr);
+}
+
+$('#gauss-1-solve').click(
+    function trySolveGauss1(){
+        var A = textToMat($('#gauss-1-input').val());
+        var A_ut = A.toUpperTriangular();
+        var A_ref = utmToRef(A_ut);
+        prompt_success("求行梯阵成功");
+        ret = matToText(A_ref);
+        $('#gauss-1-output').val(ret);
     }
 )

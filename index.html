@@ -82,7 +82,7 @@
                                     <button id='inverse-solve' class="btn btn-primary btn-block">求逆</button>
                                 </div>
                                 <div class="col-4">
-                                    <button id='inverse-random' class="btn btn-primary btn-block" onclick="randomMat('#inverse-input')">随机</button>
+                                    <button id='inverse-random' class="btn btn-primary btn-block" onclick="randomMat('#inverse-input', 4, 4)">随机</button>
                                 </div>
                                 <div class="col-2"></div>
                             </div>
@@ -106,7 +106,7 @@
                                     <button id='rank-solve' class="btn btn-primary btn-block">求秩</button>
                                 </div>
                                 <div class="col-4">
-                                    <button id='rank-random' class="btn btn-primary btn-block" onclick="randomMat('#rank-input')">随机</button>
+                                    <button id='rank-random' class="btn btn-primary btn-block" onclick="randomMat('#rank-input', 7, 7)">随机</button>
                                 </div>
                                 <div class="col-2"></div>
                             </div>
@@ -130,7 +130,7 @@
                                     <button id='det-solve' class="btn btn-primary btn-block">求行列式</button>
                                 </div>
                                 <div class="col-4">
-                                    <button id='det-random' class="btn btn-primary btn-block" onclick="randomMat('#det-input')">随机</button>
+                                    <button id='det-random' class="btn btn-primary btn-block" onclick="randomMat('#det-input', 7, 7)">随机</button>
                                 </div>
                                 <div class="col-2"></div>
                             </div>
@@ -141,7 +141,28 @@
                             </div>
                         </div>
                         <div id="gauss-1" class="col solve" style="display: none">
-                            <!-- TODO -->
+                            <div class="row">
+                                <div class="col-2"></div>
+                                <div class="col-8"><textarea class="form-control" id="gauss-1-input" rows="8" placeholder="待解矩阵，以空格和换行控制坐标，如
+6 3
+2 4" required></textarea></div>
+                                <div class="col-2"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2"></div>
+                                <div class="col-4">
+                                    <button id='gauss-1-solve' class="btn btn-primary btn-block">求行梯阵</button>
+                                </div>
+                                <div class="col-4">
+                                    <button id='gauss-1-random' class="btn btn-primary btn-block" onclick="randomMat('#gauss-1-input', 4, 5)">随机</button>
+                                </div>
+                                <div class="col-2"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2"></div>
+                                <div class="col-8"><textarea class="form-control" id="gauss-1-output" rows="8" placeholder="答案矩阵" readonly></textarea></div>
+                                <div class="col-2"></div>
+                            </div>
                         </div>
                         <div id="gauss-2" class="col solve" style="display: none">
                             <!-- TODO -->
