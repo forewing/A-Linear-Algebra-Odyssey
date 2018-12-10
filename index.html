@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <!-- <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"> -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" type="text/css" href="/static/goldennum.css"> -->
+        <link rel="stylesheet" href="./static/la2018.css">
+        <title>线性代数：奥德赛</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col function-panel">
+                    <div class="alert alert-info" role="alert">
+                        <h4 class="alert-heading">线性代数：奥德赛</h4>
+                        <div class="col">
+                        <hr>
+                        <div id='function-selector'>
+                            <div class="row">
+                                <div class="col">
+                                    <p>功能选择</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button id='inverse' class="btn btn-primary btn-block selector">求逆</button>
+                                </div>
+                                <div class="col">
+                                    <button id='rank' class="btn btn-primary btn-block selector">求秩</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button id='det' class="btn btn-primary btn-block selector">行列式</button>
+                                </div>
+                                <div class="col">
+                                    <button id='gauss-1' class="btn btn-primary btn-block selector">行梯阵</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button id='gauss-2' class="btn btn-primary btn-block selector">约化行梯阵</button>
+                                </div>
+                                <div class="col">
+                                    <button id='solve' class="btn btn-primary btn-block selector">解方程组</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button id='mul' class="btn btn-primary btn-block selector">乘法</button>
+                                </div>
+                                <div class="col">
+                                    <button id='eigen' class="btn btn-primary btn-block selector">特征向量</button>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-panel">
+                <div class="alert alert-info" role="alert">
+                    <h4>计算界面</h4>
+                    <hr>
+                    <div class="col">
+                        <div id="inverse" class="row solve"                      >
+                            <!-- TODO -->
+                        </div>
+                        <div id="rank"    class="row solve" style="display: none">
+                            <!-- TODO -->
+                        </div>
+                        <div id="det"     class="row solve" style="display: none">
+                            <!-- TODO -->
+                        </div>
+                        <div id="gauss-1" class="row solve" style="display: none">
+                            <!-- TODO -->
+                        </div>
+                        <div id="gauss-2" class="row solve" style="display: none">
+                            <!-- TODO -->
+                        </div>
+                        <div id="solve"   class="row solve" style="display: none">
+                            <!-- TODO -->
+                        </div>
+                        <div id="mul"     class="row solve" style="display: none">
+                            <!-- TODO -->
+                        </div>
+                        <div id="eigen"   class="row solve" style="display: none">
+                            <!-- TODO -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="row" style="margin-top: 50px">
+                    <div class="col">
+                        <p align="center" class="p-footer"><a href="./index.html" target="view_window">线性代数：奥德赛</a> 项目组 出品</p>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: -10px">
+                    <div class="col">
+                        <p align="center" class="p-footer">线性代数 2018 年秋季学期期末项目</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <!-- <script src="https://cdn.bootcss.com/popper.js/1.14.3/popper.min.js"></script> -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <!-- <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js" integrity="sha256-J2sc79NPV/osLcIpzL3K8uJyAD7T5gaEFKlLDM18oxY=" crossorigin="anonymous"></script>
+        <!-- <script src="https://cdn.bootcss.com/Chart.js/2.7.2/Chart.min.js"></script> -->
+        <script type='text/javascript' src="./static/sylvester.js"></script>
+        <script type='text/javascript' src="./static/common.js"></script>
+        <script type='text/javascript' src="./static/la2018.js"></script>
+    </body>
+</html>
